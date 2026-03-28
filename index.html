@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad AtotheK — Ein Wunder für die Ewigkeit | WM 2026 Song</title>
+    <meta name="description" content="Ein Wunder für die Ewigkeit — Der WM 2026 Song von Dad AtotheK. Jetzt streamen auf Spotify, Apple Music und überall.">
+    <meta property="og:title" content="Dad AtotheK — Ein Wunder für die Ewigkeit">
+    <meta property="og:description" content="Der WM 2026 Song. Jetzt streamen.">
+    <meta property="og:image" content="cover.png">
+    <meta property="og:type" content="music.song">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 420px;
+            width: 100%;
+            padding: 30px 20px 40px;
+            text-align: center;
+        }
+
+        /* Schwarz-Rot-Gold Streifen oben */
+        .flag-stripe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #000 33%, #DD0000 33% 66%, #D2AA00 66%);
+            z-index: 100;
+        }
+
+        /* Cover Art */
+        .cover {
+            width: 200px;
+            height: 200px;
+            border-radius: 16px;
+            margin: 20px auto 20px;
+            box-shadow: 0 8px 40px rgba(210, 170, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Artist Name */
+        .artist-name {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .artist-sub {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        /* Song Title */
+        .song-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #D2AA00;
+            margin-bottom: 4px;
+        }
+
+        .song-subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        /* WM Countdown */
+        .countdown {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a1a1a, #222);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 12px;
+            color: #D2AA00;
+            margin-bottom: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Headers */
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        /* Streaming Buttons */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .link-btn:active {
+            transform: translateY(0);
+        }
+
+        .link-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .link-label {
+            flex: 1;
+            text-align: left;
+        }
+
+        .link-arrow {
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* Platform Colors */
+        .btn-spotify { background: linear-gradient(135deg, #1a1a1a, #1a2a1a); }
+        .btn-spotify .link-icon { background: #1DB954; }
+        .btn-spotify:hover { border-color: #1DB954; }
+
+        .btn-apple { background: linear-gradient(135deg, #1a1a1a, #1a1a2a); }
+        .btn-apple .link-icon { background: linear-gradient(135deg, #FC3C44, #FF6B8A); }
+        .btn-apple:hover { border-color: #FC3C44; }
+
+        .btn-amazon { background: linear-gradient(135deg, #1a1a1a, #2a2a1a); }
+        .btn-amazon .link-icon { background: #25D1DA; }
+        .btn-amazon:hover { border-color: #25D1DA; }
+
+        .btn-youtube { background: linear-gradient(135deg, #1a1a1a, #2a1a1a); }
+        .btn-youtube .link-icon { background: #FF0000; }
+        .btn-youtube:hover { border-color: #FF0000; }
+
+        .btn-deezer { background: linear-gradient(135deg, #1a1a1a, #1a1a20); }
+        .btn-deezer .link-icon { background: linear-gradient(135deg, #A238FF, #FF6B00); }
+        .btn-deezer:hover { border-color: #A238FF; }
+
+        /* Social Links */
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #ccc;
+            font-size: 20px;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            border-color: #D2AA00;
+            color: #D2AA00;
+        }
+
+        /* Stars */
+        .stars {
+            color: #D2AA00;
+            font-size: 16px;
+            letter-spacing: 6px;
+            margin-bottom: 6px;
+        }
+
+        /* Footer */
+        .footer {
+            font-size: 12px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .footer a {
+            color: #777;
+            text-decoration: none;
+        }
+
+        /* SVG Icons inline */
+        .icon-svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <div class="flag-stripe"></div>
+
+    <div class="container">
+        <!-- Cover Art -->
+        <div class="cover">
+            <img src="cover.png" alt="Ein Wunder für die Ewigkeit — Cover Art">
+        </div>
+
+        <!-- Artist -->
+        <div class="artist-name">Dad AtotheK</div>
+        <div class="artist-sub">Songwriter & AI Music Producer</div>
+
+        <!-- Song -->
+        <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <div class="song-title">Ein Wunder für die Ewigkeit</div>
+        <div class="song-subtitle">WM 2026 Song</div>
+
+        <!-- Countdown -->
+        <div class="countdown">&#9917; WM 2026 — 11. Juni, USA</div>
+
+        <!-- Streaming Links -->
+        <div class="section-label">Jetzt streamen</div>
+        <div class="links">
+            <a href="https://open.spotify.com/album/6CHlEPkRA6R1wBu1NqS9hJ" target="_blank" rel="noopener" class="link-btn btn-spotify">
+                <div class="link-icon">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                </div>
+                <span class="link-label">Spotify</span>
+                <span class="link-arrow">&#8250;</span>
+            </a>
+
+            <a href="https://music.apple.com/us/album/ein-wunder-f%C3%BCr-die-ewigkeit-single/1883242190" target="_blank" rel="noopener" class="link-btn btn-apple">
+                <div class="link-icon">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043A5.022 5.022 0 0019.2.04a10.49 10.49 0 00-1.87-.036H6.674a10.49 10.49 0 00-1.87.036A5.022 5.022 0 002.43.892C1.312 1.624.567 2.624.25 3.934a9.23 9.23 0 00-.24 2.19v11.752a9.23 9.23 0 00.24 2.19c.317 1.31 1.062 2.31 2.18 3.043a5.022 5.022 0 002.374.852c.624.06 1.248.036 1.87.036h10.656c.622 0 1.246.024 1.87-.036a5.022 5.022 0 002.374-.852c1.118-.732 1.863-1.732 2.18-3.043a9.23 9.23 0 00.24-2.19V6.124zM17.727 17.2c-.063.186-.14.37-.24.543a2.18 2.18 0 01-1.083 1.012c-.27.116-.558.17-.848.16-.29-.012-.574-.07-.848-.175a7.85 7.85 0 01-.783-.378c-.503-.27-.98-.583-1.486-.843a3.27 3.27 0 00-1.388-.42 3.27 3.27 0 00-1.388.42c-.506.26-.983.573-1.486.843a7.85 7.85 0 01-.783.378c-.274.105-.558.163-.848.175-.29.01-.578-.044-.848-.16a2.18 2.18 0 01-1.083-1.012 2.783 2.783 0 01-.24-.543c-.26-.794-.332-1.62-.26-2.45.07-.79.27-1.56.59-2.29.32-.726.75-1.394 1.27-1.985a6.2 6.2 0 011.7-1.396c.232-.13.474-.24.726-.327-.03-.188-.05-.378-.05-.568 0-.964.382-1.89 1.062-2.572A3.635 3.635 0 0112 4.5c.964 0 1.89.382 2.572 1.062a3.635 3.635 0 011.062 2.572c0 .19-.02.38-.05.568.252.088.494.198.726.327a6.2 6.2 0 011.7 1.396c.52.59.95 1.26 1.27 1.985.32.73.52 1.5.59 2.29.072.83 0 1.656-.26 2.45z"/></svg>
+                </div>
+                <span class="link-label">Apple Music</span>
+                <span class="link-arrow">&#8250;</span>
+            </a>
+
+            <!-- TODO: Echte Links eintragen wenn verfügbar -->
+            <a href="https://music.amazon.de/search/Ein+Wunder+f%C3%BCr+die+Ewigkeit+Dad+AtotheK" target="_blank" rel="noopener" class="link-btn btn-amazon">
+                <div class="link-icon">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.659.659 0 01-.753.074c-1.057-.878-1.247-1.287-1.826-2.124-1.748 1.783-2.985 2.316-5.247 2.316C6.934 18.061 5 16.55 5 13.856c0-2.107 1.141-3.541 2.768-4.244 1.413-.618 3.384-.728 4.89-.899v-.337c0-.618.048-1.349-.316-1.883-.316-.475-.924-.672-1.458-.672-.989 0-1.87.507-2.085 1.558a.441.441 0 01-.381.381l-2.134-.231c-.179-.04-.378-.184-.327-.458C6.529 4.623 8.912 3.5 11.06 3.5c1.104 0 2.547.293 3.416 1.127 1.104 1.028.999 2.4.999 3.895v3.527c0 1.061.44 1.525.853 2.1.145.204.177.45-.009.601-.465.389-1.292 1.113-1.748 1.518l-.427-.473zM21.26 21.133c-1.659 1.265-4.06 1.94-6.131 1.94-2.895 0-5.502-1.065-7.474-2.84-.155-.14-.017-.331.169-.223 2.13 1.239 4.764 1.985 7.484 1.985 1.836 0 3.854-.381 5.711-1.169.28-.119.514.185.241.307z"/></svg>
+                </div>
+                <span class="link-label">Amazon Music</span>
+                <span class="link-arrow">&#8250;</span>
+            </a>
+
+            <a href="https://music.youtube.com/search?q=Dad+AtotheK+Ein+Wunder+f%C3%BCr+die+Ewigkeit" target="_blank" rel="noopener" class="link-btn btn-youtube">
+                <div class="link-icon">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </div>
+                <span class="link-label">YouTube Music</span>
+                <span class="link-arrow">&#8250;</span>
+            </a>
+
+            <a href="https://www.deezer.com/search/Dad%20AtotheK%20Ein%20Wunder" target="_blank" rel="noopener" class="link-btn btn-deezer">
+                <div class="link-icon">
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.03h5.19V8.38H6.27zm6.27 0v3.03h5.19V8.38h-5.19zm6.27 0v3.03H24V8.38h-5.19zM6.27 12.5v3.03h5.19V12.5H6.27zm6.27 0v3.03h5.19V12.5h-5.19zm6.27 0v3.03H24V12.5h-5.19zM0 16.66v3.03h5.19v-3.03H0zm6.27 0v3.03h5.19v-3.03H6.27zm6.27 0v3.03h5.19v-3.03h-5.19zm6.27 0v3.03H24v-3.03h-5.19z"/></svg>
+                </div>
+                <span class="link-label">Deezer</span>
+                <span class="link-arrow">&#8250;</span>
+            </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="section-label">Follow</div>
+        <div class="socials">
+            <a href="https://www.instagram.com/dad_atothek/" target="_blank" rel="noopener" class="social-btn" title="Instagram">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@dad_atothek" target="_blank" rel="noopener" class="social-btn" title="TikTok">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/DadAtotheK" target="_blank" rel="noopener" class="social-btn" title="Facebook">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://t.me/Dad_AtotheK" target="_blank" rel="noopener" class="social-btn" title="Telegram">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Deutsche Texte. Epische Beats. Powered by Kreativität & KI.
+        </div>
+    </div>
+</body>
+</html>
